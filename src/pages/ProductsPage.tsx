@@ -1,93 +1,18 @@
-import React from "react";
-import { routes } from "@/routes";
-import NavbarCentered from "@/components/ui/NavbarCentered";
-import HeroBillboard from "@/components/sections/hero/HeroBillboard";
-import ProductMediaCards from "@/components/sections/product/ProductMediaCards";
-import FeaturesIconCards from "@/components/sections/features/FeaturesIconCards";
-import ContactCta from "@/components/sections/contact/ContactCta";
-import NoiseBackground from "@/components/ui/NoiseBackground";
+import Button from "@/components/ui/Button";
+import HeroBackgroundSlot from "@/components/ui/HeroBackgroundSlot";
+import TextAnimation from "@/components/ui/TextAnimation";
+import ImageOrVideo from "@/components/ui/ImageOrVideo";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import AvatarGroup from "@/components/ui/AvatarGroup";
+import { ArrowUpRight, Loader2 } from "lucide-react";
+import GridOrCarousel from "@/components/ui/GridOrCarousel";
+import useProducts from "@/hooks/useProducts";
 
 export default function ProductsPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
-      <NoiseBackground position="fixed" />
-
-      <NavbarCentered
-        logo="Marka"
-        navItems={routes.map((r) => ({ name: r.label, href: r.path }))}
-        ctaButton={{ text: "Bize Ulaşın", href: "/contact" }}
-      />
-
-      <main className="relative z-10">
-        <HeroBillboard
-          tag="Koleksiyonumuz"
-          title="Yenilikçi Ürünlerimizi Keşfedin"
-          description="İhtiyaçlarınıza özel olarak tasarlanmış, yüksek kaliteli ve sürdürülebilir çözümler sunuyoruz."
-          primaryButton={{ text: "Ürünleri İncele", href: "#products" }}
-          secondaryButton={{ text: "Daha Fazla Bilgi", href: "#features" }}
-          imageSrc="https://images.unsplash.com/photo-1491933382434-500287f9b54b?q=80&w=2000&auto=format&fit=crop"
-        />
-
-        <div id="products">
-          <ProductMediaCards
-            tag="Öne Çıkanlar"
-            title="En Çok Satan Ürünlerimiz"
-            description="Müşterilerimizin favorisi olan ve endüstri standartlarını belirleyen ürün yelpazemiz."
-            products={[
-              {
-                name: "Pro Sürüm X",
-                price: "₺2.999",
-                imageSrc: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop",
-                onClick: () => console.log("Pro Sürüm X tıklandı")
-              },
-              {
-                name: "Başlangıç Paketi",
-                price: "₺999",
-                imageSrc: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop",
-                onClick: () => console.log("Başlangıç Paketi tıklandı")
-              },
-              {
-                name: "Kurumsal Çözüm",
-                price: "Özel Fiyat",
-                imageSrc: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=800&auto=format&fit=crop",
-                onClick: () => console.log("Kurumsal Çözüm tıklandı")
-              }
-            ]}
-          />
-        </div>
-
-        <div id="features">
-          <FeaturesIconCards
-            tag="Neden Biz?"
-            title="Üstün Kalite ve Güvence"
-            description="Her bir ürünümüz, en yüksek standartlarda üretilir ve test edilir."
-            features={[
-              {
-                icon: "Shield",
-                title: "Güvenilir",
-                description: "Uzun ömürlü kullanım garantisi ve tam koruma."
-              },
-              {
-                icon: "Zap",
-                title: "Hızlı Kurulum",
-                description: "Saniyeler içinde entegre edin ve hemen kullanmaya başlayın."
-              },
-              {
-                icon: "Heart",
-                title: "Müşteri Memnuniyeti",
-                description: "7/24 kesintisiz destek hizmeti ile her zaman yanınızdayız."
-              }
-            ]}
-          />
-        </div>
-
-        <ContactCta
-          tag="Hemen Başlayın"
-          text="İşletmeniz için en uygun çözümü bulmak üzere uzman ekibimizle iletişime geçin."
-          primaryButton={{ text: "İletişime Geç", href: "/contact" }}
-          secondaryButton={{ text: "Kataloğu İndir", href: "/catalog" }}
-        />
-      </main>
-    </div>
+    <>
+      <div data-webild-section="HeroBillboard"><section aria-label="Hero section" className="relative pt-25 pb-20 md:pt-30"><HeroBackgroundSlot /><div className="flex flex-col gap-12 md:gap-15 w-content-width mx-auto"><div className="flex flex-col items-center gap-3 text-center"><AvatarGroup avatarsSrc={["https://img.freepik.com/free-photo/portrait-young-woman-smiling-isolated_23-2149158610.jpg","https://img.freepik.com/free-photo/handsome-young-man-with-new-stylish-haircut_176420-19637.jpg","https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg"]} label="10+ yıllık deneyim" className="mb-1" /><TextAnimation text="Ürünler" variant="slide-up" gradientText={true} tag="h1" className="md:max-w-8/10 text-7xl 2xl:text-8xl leading-[1.15] font-semibold text-center text-balance" /><TextAnimation text="Sağlıklı beslenmeyi günlük hayatınıza pratik bir şekilde entegre etmenize yardımcı olacak, özenle seçilmiş favori ürünlerim." variant="slide-up" gradientText={false} tag="p" className="md:max-w-7/10 text-lg md:text-xl leading-snug text-balance" /><div className="flex flex-wrap justify-center gap-3 mt-2 md:mt-3"><Button text="Tümünü Gör" href="#all-products" variant="primary" /><Button text="Tariflere Göz At" href="/recipes" variant="secondary" animationDelay={0.1} /></div></div><ScrollReveal variant="fade-blur" delay={0.2} className="w-full p-2 xl:p-3 2xl:p-4 card rounded overflow-hidden"><ImageOrVideo imageSrc="https://img.freepik.com/free-photo/top-view-healthy-food-arrangement_23-2148890539.jpg" className="aspect-4/5 md:aspect-video" /></ScrollReveal></div></section></div>
+      <div data-webild-section="ProductMediaCards"><section aria-label="Products section" className="py-20"><div className="w-content-width mx-auto flex justify-center"><Loader2 className="size-8 animate-spin text-foreground" strokeWidth={1.5} /></div></section></div>
+    </>
   );
 }
