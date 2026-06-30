@@ -94,7 +94,7 @@ export default function HomePage() {
       description="Join our community and start feeling your best."
       testimonials={[
         {
-          id: "1",
+          id: "2",
           name: "Sarah J.",
           role: "Reader",
           company: "Community",
@@ -110,7 +110,7 @@ export default function HomePage() {
           imageSrc: "http://img.b2bpic.net/free-photo/happy-mature-businessman-showing-thumb-up_1262-3024.jpg",
         },
         {
-          id: "3",
+          id: "4",
           name: "Elena R.",
           role: "Reader",
           company: "Community",
