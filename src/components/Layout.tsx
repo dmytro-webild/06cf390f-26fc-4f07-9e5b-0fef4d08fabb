@@ -34,7 +34,9 @@ export default function Layout() {
   {
     "name": "Faq",
     "href": "#faq"
-  }
+  },
+  { name: "Products", href: "/products" },
+
 ];
 
   return (
